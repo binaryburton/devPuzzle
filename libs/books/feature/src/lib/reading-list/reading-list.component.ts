@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { getReadingList, removeFromReadingList } from '@tmo/books/data-access';
+import { getReadingList, removeFromReadingList, updateFromReadingList } from '@tmo/books/data-access';
+import {formatDate} from '@angular/common';
 
 @Component({
   selector: 'tmo-reading-list',
@@ -14,5 +15,11 @@ export class ReadingListComponent {
 
   removeFromReadingList(item) {
     this.store.dispatch(removeFromReadingList({ item }));
+  }
+
+  bookFinished(item) {
+    // update book in reading list
+    item.finishedDate = formatDate(new Date(), 'yyyy/MM/dd', 'en');
+    this.store.dispatch(updateFromReadingList({ item }));
   }
 }
