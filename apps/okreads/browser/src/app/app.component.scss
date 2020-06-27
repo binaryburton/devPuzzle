@@ -10,6 +10,10 @@ h1 {
   flex: 1;
 }
 
+mat-drawer {
+  max-width: 90%;
+}
+
 .header {
   position: sticky;
   top: 0;
@@ -41,7 +45,8 @@ main {
 
 .reading-list-container {
   padding: 0;
-  width: 400px;
+  width: 34rem;
+  // max-width: 90%;
   height: 100vh;
 
   h2 {
