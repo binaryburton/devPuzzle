@@ -27,6 +27,21 @@ export const confirmedAddToReadingList = createAction(
   props<{ book: Book }>()
 );
 
+export const updateToReadingList = createAction(
+  '[Reading List] Update to list',
+  props<{ book: any }>()
+);
+
+export const failedUpdateToReadingList = createAction(
+  '[Reading List] Failed update to list',
+  props<{ book: any }>()
+);
+
+export const confirmedUpdateToReadingList = createAction(
+  '[Reading List] Confirmed update to list',
+  props<{ book: any }>()
+);
+
 export const removeFromReadingList = createAction(
   '[Reading List] Remove from list',
   props<{ item: ReadingListItem }>()
@@ -39,20 +54,5 @@ export const failedRemoveFromReadingList = createAction(
 
 export const confirmedRemoveFromReadingList = createAction(
   '[Reading List] Confirmed remove from list',
-  props<{ item: ReadingListItem }>()
-);
-
-export const updateFromReadingList = createAction(
-  '[Reading List] Update from list',
-  props<{ item: ReadingListItem }>()
-);
-
-export const failedUpdateFromReadingList = createAction(
-  '[Reading List] Failed update from list',
-  props<{ item: ReadingListItem }>()
-);
-
-export const confirmedUpdateFromReadingList = createAction(
-  '[Reading List] Confirmed update from list',
   props<{ item: ReadingListItem }>()
 );

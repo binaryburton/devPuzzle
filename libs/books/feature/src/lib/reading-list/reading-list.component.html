@@ -12,8 +12,11 @@
     <div *ngIf="(!b.finished)">
       <button
         mat-icon-button
-        [attr.aria-label]="'Remove ' + b.title + ' from reading list'"
+        [attr.aria-label]="'Update ' + b.title + ' from reading list'"
+        (click)="updateBookToReadingList(b)"
       >
+      {{b.finished}}
+      {{b.finishedDate}}
       <mat-icon>done</mat-icon>
       </button>
     </div>
