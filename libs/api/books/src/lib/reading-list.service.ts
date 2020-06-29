@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { StorageService } from '@tmo/shared/storage';
 import { Book, ReadingListItem } from '@tmo/shared/models';
+import {formatDate} from '@angular/common';
 
 const KEY = '[okreads API] Reading List';
 
@@ -17,6 +18,20 @@ export class ReadingListService {
       const { id, ...rest } = b;
       list.push({
         bookId: id,
+        ...rest
+      });
+      return list;
+    });
+  }
+
+  async updateBook(b: Book): Promise<void> {
+    this.storage.update(list => {
+      list.filter(x => x.bookId !== b.id);
+      const { id, ...rest } = b;
+      list.push({
+        bookId: id,
+        finished: true,
+        finishedDate: formatDate(new Date(), 'yyyy/MM/dd', 'en'),
         ...rest
       });
       return list;
